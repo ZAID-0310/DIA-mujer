@@ -4,6 +4,10 @@ let carta = document.getElementById("carta");
 
 carta.classList.toggle("abierta");
 
+/* activar scroll cuando se abre */
+
+document.body.classList.toggle("carta-abierta");
+
 /* mostrar fotos y video */
 
 let media = document.querySelectorAll(".media");

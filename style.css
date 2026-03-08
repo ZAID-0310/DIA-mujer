@@ -16,6 +16,8 @@ background:linear-gradient(135deg,#ff9a9e,#fad0c4);
 
 font-family:'Poppins',sans-serif;
 
+overflow-x:hidden;
+
 }
 
 /* CONTENEDOR */
@@ -39,6 +41,8 @@ width:500px;
 box-shadow:0 10px 40px rgba(0,0,0,0.2);
 
 z-index:10;
+
+position:relative;
 
 }
 
@@ -181,31 +185,23 @@ transition:all 1s ease;
 /* POSICIONES */
 
 .media1{
-
 top:10%;
 left:5%;
-
 }
 
 .media2{
-
 top:10%;
 right:5%;
-
 }
 
 .media3{
-
 bottom:10%;
 left:8%;
-
 }
 
 .media4{
-
 bottom:10%;
 right:8%;
-
 }
 
 /* CUANDO APARECEN */
@@ -220,12 +216,26 @@ transform:scale(1);
 
 /* RESPONSIVE PARA CELULAR */
 
-@media (max-width: 768px){
+@media (max-width:768px){
 
 body{
 flex-direction:column;
+justify-content:flex-start;
+align-items:center;
 height:auto;
 padding:20px;
+}
+
+/* evitar scroll vacío antes de abrir */
+
+body:not(.carta-abierta){
+overflow:hidden;
+}
+
+/* permitir scroll cuando se abre */
+
+body.carta-abierta{
+overflow:auto;
 }
 
 .container{
@@ -233,7 +243,7 @@ width:90%;
 padding:30px;
 }
 
-/* media (fotos y video) pasan a ser normales */
+/* media pasa a layout normal */
 
 .media{
 
@@ -249,7 +259,7 @@ display:block;
 
 }
 
-/* quitamos posiciones absolutas */
+/* quitamos posiciones */
 
 .media1,
 .media2,
@@ -261,6 +271,84 @@ left:auto;
 right:auto;
 bottom:auto;
 
+}
+
+}
+
+/* ======================== */
+/* ANIMACION DE CORAZONES */
+/* ======================== */
+
+.corazones{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:1;
+
+}
+
+.corazones span{
+
+position:absolute;
+
+bottom:-50px;
+
+font-size:24px;
+
+animation:flotar 8s linear infinite;
+
+opacity:0.7;
+
+}
+
+.corazones span:nth-child(1){
+left:10%;
+animation-duration:7s;
+}
+
+.corazones span:nth-child(2){
+left:30%;
+animation-duration:9s;
+}
+
+.corazones span:nth-child(3){
+left:50%;
+animation-duration:8s;
+}
+
+.corazones span:nth-child(4){
+left:70%;
+animation-duration:10s;
+}
+
+.corazones span:nth-child(5){
+left:90%;
+animation-duration:7s;
+}
+
+@keyframes flotar{
+
+0%{
+transform:translateY(0) scale(1);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-110vh) scale(1.5);
+opacity:0;
 }
 
 }
