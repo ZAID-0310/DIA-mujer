@@ -217,3 +217,50 @@ opacity:1;
 transform:scale(1);
 
 }
+
+/* RESPONSIVE PARA CELULAR */
+
+@media (max-width: 768px){
+
+body{
+flex-direction:column;
+height:auto;
+padding:20px;
+}
+
+.container{
+width:90%;
+padding:30px;
+}
+
+/* media (fotos y video) pasan a ser normales */
+
+.media{
+
+position:relative;
+
+width:90%;
+
+height:auto;
+
+margin:15px auto;
+
+display:block;
+
+}
+
+/* quitamos posiciones absolutas */
+
+.media1,
+.media2,
+.media3,
+.media4{
+
+top:auto;
+left:auto;
+right:auto;
+bottom:auto;
+
+}
+
+}
